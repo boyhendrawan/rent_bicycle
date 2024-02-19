@@ -2,14 +2,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-from babel.numbers import format_currency
 import numpy as np
 
 
 # core function
 
 st.title("Dashboard For Rent Bicycles",)
-datasets_daily= pd.read_csv("./hour.csv")
+datasets_daily= pd.read_csv("./assets/day.csv")
 
 datasets_daily.dteday=pd.to_datetime(datasets_daily.dteday)
 min_date = datasets_daily["dteday"].min()
@@ -17,7 +16,7 @@ max_date = datasets_daily["dteday"].max()
 
 with st.sidebar:
     # Menambahkan logo perusahaan
-    st.image("./gambar.png",use_column_width='auto')
+    st.image("./assets/gambar.png",use_column_width='auto')
     
     # Mengambil start_date & end_date dari date_input
     start_date, end_date=st.date_input(
